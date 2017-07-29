@@ -41,26 +41,18 @@ namespace ModOS.Filesystem {
 
 		public void SetCurrentDirectory(string dir) {
 			if (ValidateDirectory(currentDir + dir)) {
-                Console.WriteLine("*\tFirst Trigger");
-
                 currentDir += dir;
 				return;
 			}
 			if (ValidateDirectory(currentDir + "\\" + dir)) {
-                Console.WriteLine("*\tSecond Trigger");
-
                 currentDir += "\\" + dir;
 				return;
 			}
 
 			if (ValidateDirectory(dir)) {
-                Console.WriteLine("*\tThird Trigger");
-
                 currentDir = dir;
 				return;
 			}
-
-            Console.WriteLine("*\tFinal Trigger");
 		}
 
 		public Information GetInformation() {
