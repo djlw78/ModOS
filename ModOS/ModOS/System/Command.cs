@@ -1,7 +1,6 @@
-﻿using System;
-using ModOS.Interface;
+﻿using ModOS.Interface;
 
-namespace ModOS.Commands {
+namespace ModOS.System {
 	public abstract class Command : IFeature, IExecutable {
 		internal Information feature;
 		internal IShell currentShell;

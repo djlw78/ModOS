@@ -1,4 +1,6 @@
-﻿namespace ModOS.Commands {
+﻿using ModOS.System;
+
+namespace ModOS.Commands {
 	public class Mkdir : Command {
         public override string id {
 			get {

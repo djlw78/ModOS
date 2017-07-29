@@ -1,6 +1,5 @@
 ﻿using System;
 using ModOS.Interface;
-using ModOS.Shell;
 
 namespace ModOS.Shell {
 	public class ShellDisplay : IFeature {
@@ -19,7 +18,7 @@ namespace ModOS.Shell {
 		public void Initialise() { }
 
 		public void Update() {
-			Console.Write(new string(((ShellDefault)Kernel.features[Kernel.currentShell]).GetOutput()));
+			Console.Write(new string(((IShell)Kernel.features[Kernel.currentShell]).GetOutput()));
 		}
 	}
 }

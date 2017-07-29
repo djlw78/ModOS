@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+using ModOS.Commands;
 using ModOS.Interface;
 
-namespace ModOS.Commands {
-	class CommandManager : IFeature {
+namespace ModOS.System {
+	public class CommandManager : IFeature, ICommandManager {
 		Information feature;
 		public List<Command> commands;
 
@@ -16,10 +18,11 @@ namespace ModOS.Commands {
 		}
 
 		public void Initialise() {
-			commands.Add(new Reboot());
-			commands.Add(new Echo());
-			commands.Add(new Mkdir());
-            commands.Add(new Cd());
+			AddCommand(new Reboot());
+            AddCommand(new Echo());
+            AddCommand(new Mkdir());
+            AddCommand(new Cd());
+            AddCommand(new Test());
         }
 
 		public void Evaluate(string cmd, string[] args, IShell currentShell) {
@@ -37,5 +40,9 @@ namespace ModOS.Commands {
 		}
 
 		public void Update() { }
-	}
+
+        public void AddCommand(Command command) {
+            commands.Add(command);
+        }
+    }
 }

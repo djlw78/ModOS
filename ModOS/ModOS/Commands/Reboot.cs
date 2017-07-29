@@ -1,4 +1,5 @@
 ﻿using Cosmos.System;
+using ModOS.System;
 
 namespace ModOS.Commands {
 	public class Reboot : Command {

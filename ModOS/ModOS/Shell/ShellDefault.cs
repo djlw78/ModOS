@@ -2,8 +2,6 @@
 
 using ModOS.Extensions;
 using ModOS.Interface;
-using ModOS.Commands;
-using ModOS.Filesystem;
 
 namespace ModOS.Shell {
 	public class ShellDefault : IShell, IFeature {
@@ -29,7 +27,7 @@ namespace ModOS.Shell {
 		public void Evaluate(string command) {
 			try {
 				string[] lexed = command.Lex();
-				((CommandManager)Kernel.features[Kernel.currentManager]).Evaluate(lexed[0], lexed.RemoveFirst(), this);
+				((ICommandManager)Kernel.features[Kernel.currentManager]).Evaluate(lexed[0], lexed.RemoveFirst(), this);
 				lexed = null;
 			} catch(Exception e) {
 				Console.ForegroundColor = ConsoleColor.Red;
@@ -60,7 +58,7 @@ namespace ModOS.Shell {
 
 		public void Initialise() {
 			output = "";
-			SetFilesystem((FAT)Kernel.features["FAT"]);
+			SetFilesystem((IFilesystem)Kernel.features["FAT"]);
 			GetFilesystem().SetCurrentDirectory("0:\\");
 		}
 	}

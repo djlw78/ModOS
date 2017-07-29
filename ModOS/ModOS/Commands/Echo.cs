@@ -1,5 +1,6 @@
 ﻿using ModOS.Extensions;
 using ModOS.Shell;
+using ModOS.System;
 
 namespace ModOS.Commands {
 	public class Echo : Command {

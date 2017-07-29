@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System;
 
 using Cosmos.System.FileSystem;
 using Cosmos.System.FileSystem.VFS;
@@ -63,7 +62,6 @@ namespace ModOS.Filesystem {
             if(!ValidateDirectory(dir)) {
                 Directory.CreateDirectory(currentDir + "/" + dir);
             } else {
-                
             }
         }
     }
